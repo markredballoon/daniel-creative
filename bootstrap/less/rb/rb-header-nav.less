@@ -1,0 +1,283 @@
+/* Variables */
+
+/* Height of the header */
+@header-height-base:                        96px;
+@header-height-sm:                          60px;
+@header-height-xs:                          56px;
+
+
+/* Default size of the logo */
+@logo-width-default: 						auto;
+@logo-height-default:						auto;
+
+/* Size of the logo within the header */
+@logo-width-header: 						@logo-width-default;
+@logo-height-header: 						@logo-height-default;
+
+/* Size of the logo in the footer */
+@logo-width-footer:							@logo-width-default;
+@logo-height-footer: 						@logo-height-default;
+
+
+
+/* Hamburger menu icon variables*/
+@menu-icon-colour: 							@gray-dark-rb;
+@menu-icon-width: 							32px;
+@menu-icon-height: 							4px;
+@menu-icon-border-radius: 			1px;
+@menu-icon-inside-margin: 			5px; /* Margin between the span elements */
+
+/* Main navigation sizes */
+@nav-main-item-width: 					auto;
+@nav-main-item-height: 					auto;
+
+/* Header links styles */
+
+header{
+	min-height: @header-height-base;
+	border-bottom: 1px solid @gray-darker-rb;
+	position: relative;
+	.blog-name{
+		float: left;
+		width: 142px;
+		margin-top: 20px;
+		/*
+		font-weight: 800;
+		word-spacing: 200px; // Forces the new line
+		font-size: @font-size-h3;
+		color: @gray-dark-rb;
+		line-height: 28px;
+		*/
+		font-size: 0; 
+		line-height: 0;
+		text-transform: -9999px;
+		a{
+			color: inherit;
+			&:hover, 
+			&:focus{
+				text-decoration: none;
+			}
+		}
+		img, 
+		svg{
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+	.header-right{
+		float: right;
+		.social-links,
+		.blog-nav{
+			ul{
+				.clearfix();
+			}
+		}
+	}
+	
+	
+}
+#main-nav{
+	margin-top: @psv;
+	li{
+		float: left;
+		margin: 0;
+		font-weight: 700;
+		a {
+			padding: 0 13.5px;
+			display: block;
+			color: @gray-dark-rb;
+			font-size: @font-size-large;
+			&:hover, 
+			&:focus{
+				text-decoration: none;
+			}
+		}
+		&:last-child a{
+			padding-right: 0;
+		}
+	}
+	&:hover li a{
+		color: @gray-light-rb;
+		&:hover{
+			color: @gray-dark-rb;
+		}
+	}
+}
+.social-links{
+	margin-top: @pb2v;
+	text-align: right;
+	font-size: 0;
+	line-height: 0;
+	text-transform: -99999px;
+	li{
+		display: inline-block;
+		height: @pbh;
+		margin-left: @pbh;
+		a{
+			display: block;
+			img, 
+			svg{
+				height: 100%;
+				width: auto;
+				display: block;
+				transition: transform 0.4s;
+			}
+			&:hover{
+				img, 
+				svg{
+					transform: translateY(-2px);
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: @screen-sm-max){
+	header{
+		min-height: @header-height-sm;
+		.blog-name{
+			width: 103px;
+			margin-top: @psv;
+		}
+		.header-right{
+			display: none;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: @header-height-sm;
+			padding-bottom: @pxlv;
+		}
+		ul{
+			margin: 0;
+		}
+		#main-nav{
+			margin:0;
+			padding: 0;
+			text-align: center;
+			li{
+				display: block;
+				float: none;
+				border-bottom: 1px solid #EBEBEB;
+				a{
+					padding: @psv 0 11px;
+				}
+			}
+		}
+		.social-links{
+			margin-top: 0;
+			padding: 0;
+			position: absolute;
+			bottom: @pb2v;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			li{
+				margin:0;
+				padding: 0 @ps2h;
+			}
+		}
+	}
+}
+@media screen and (max-width: @screen-xs-max){
+	.sm-static{
+		position: static;
+	}
+	header{
+		min-height: @header-height-xs;
+		.blog-name{
+			margin-left: @ps2h;
+			width: 103px;
+			margin-top: @psv;
+		}
+		.header-right{
+			top: @header-height-xs;
+		}
+	}
+}
+
+
+
+/* Hamburger */
+.nav-toggle{
+	display: none;
+	position: relative;
+	border: none;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	float: right;
+	margin-top: 19px;
+	cursor: pointer;
+	.icon-bar{
+		display: block;
+	    width: @menu-icon-width;
+	    height: @menu-icon-height;
+		background: @menu-icon-colour;
+		border-radius: @menu-icon-border-radius;
+		& + .icon-bar{
+			margin-top: @menu-icon-inside-margin;
+		}
+	}
+	&:hover{
+		/* Hover state of the hamburger*/
+	}
+	&.open{
+		/* Styles when menu is open */
+	}
+	@media screen and (max-width:@screen-sm-max){
+		display: block;
+	}
+	@media screen and (max-width:@screen-xs-max){
+		margin:@pb3v @ps2h 0 0 ;
+	}
+}
+
+.nav-open{
+	main, 
+	#main{
+		visibility: hidden;
+	}
+	.nav-toggle{
+		.icon-bar{
+			background-color: @gray-light-rb;
+		}
+	}
+	header .header-right{
+		display: block;
+	}
+}
+
+
+
+
+
+
+
+/* Default nav styles */
+nav{
+	ul{
+		li{
+			/* Stuctural, try to avoid adding many styles to this element */
+			font-size: 0;
+			display: inline-block;
+			a{
+				/* Add margins and paddings to this element */
+				display: block;
+				font-size: @font-size-base;
+				span{
+					/* Type styles can go here */
+				}
+				&:hover{
+					/* Hover state of menu items */
+				}
+				&:hover, &:focus{
+					text-decoration: none; /* removes underline from the link*/
+				}
+			}
+		}
+		&.v-list>li{
+			/* List where each item fills the whole width of the containing element */
+			display: block;
+		}
+	}
+}

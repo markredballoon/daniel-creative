@@ -1,0 +1,173 @@
+/* Custom LESS styles */
+
+/*
+
+Contents:
+
+_structural_styles
+_z-indexs
+_general_styles
+_Reused_classes
+_page_specific
+_sidebar
+
+*/
+
+/*
+=== === === === === === ===
+_structural_styles
+=== === === === === === ===
+*/
+
+html{}
+body{}
+#main{}
+
+section{
+	position: relative;
+}
+/*
+=== === === === === === ===
+_z-indexs
+=== === === === === === ===
+*/
+body{
+	position: relative;
+}
+
+header{
+	position: relative;
+	z-index: 2;
+}
+
+#main{
+	position: relative;
+	z-index: 1;
+}
+
+
+footer{
+	position: relative;
+	z-index: 2;
+}
+
+/*
+=== === === === === === ===
+_general_styles
+=== === === === === === ===
+*/
+a{
+	/* Adds opacity, background-color, and color transitions. The base transition speed is 0.5s */
+	.fadeTransition();
+}
+/*
+=== === === === === === ===
+_Reused_classes
+=== === === === === === ===
+*/
+
+/*
+=== === === === === === ===
+_page_specific
+=== === === === === === ===
+*/
+
+/* CUSTOM STYLES: */
+#my-work{
+	padding-top: @pl2v;
+    .make-row();
+    @media screen and (max-width: @screen-sm-max) {
+    	padding-top: @pbv;
+    }
+    @media screen and (max-width: @screen-xs-max) {
+    	padding-top: 18px;
+    }
+}
+.work{
+	float: left;
+	width: 50%;
+    margin-bottom: @psv;
+    padding: 0 @pxh 0 @ps2h;
+    &:nth-child(2n){
+		padding: 0 @ps2h 0 @pxh;
+    }
+    @media screen and (max-width: @screen-sm-max) {
+    	margin-bottom: @pbv;
+    	&, 
+    	&:nth-child(2n){
+    		padding: 0 @ps2h;
+    	}
+    }
+    @media screen and (max-width: @screen-xs-max) {
+    	width: 100%;
+    	margin-bottom: @psv;
+    }
+	.image-wrap{
+	    width: 100%;
+	    position: relative;
+	    height: 0;
+	    padding-bottom: 59.743%;
+	    z-index: 1;
+	    img{
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		}
+	}
+	.hover-state{
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+	    opacity: 0;
+	    z-index: 2;
+	    background-color: rgba(255,255,255,0.9);
+	    transition: opacity 0.4s;
+	    .title{
+		    color: #333;
+		    font-size: @font-size-h2;
+		    line-height: @line-height-large;
+		    font-weight: 700;
+		    text-align: center;
+		    position: absolute;
+		    top: 50%;
+		    left: 0;
+		    transform: translateY(-50%);
+		    width: 100%;
+		}
+		@media screen and (max-width: @screen-sm-max){
+	    	display: none;	
+	    }
+	}
+	&:hover .hover-state{
+	    opacity: 1;
+	}
+}
+
+/*
+=== === === === === === ===
+_media_queries
+=== === === === === === ===
+*/
+
+/* Max width: */
+@media screen and (max-width: @screen-md-max){}
+@media screen and (max-width: @screen-sm-max){}
+@media screen and (max-width: @screen-xs-max){}
+
+/* Min width */;
+@media screen and (min-width: @screen-lg){}
+@media screen and (min-width: @screen-md){}
+@media screen and (min-width: @screen-sm){}
+
+/* Specific widths: */
+@media screen and (min-width: @screen-md) and (max-width: @screen-md-max){}
+@media screen and (min-width: @screen-sm) and (max-width: @screen-sm-max){}
+
+/* Orientation: */
+@media screen (orientation: portrait){}
+@media screen (orientation: landscape){}

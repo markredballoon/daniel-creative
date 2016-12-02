@@ -1,0 +1,61 @@
+/* Hero sizes */
+
+/* Placholder sizes */
+@hero-height-small: 200px;
+@hero-height-medium: 430px;
+@hero-height-large: 560px;
+
+// Default hero styles
+@hero-height-default: @hero-height-large;
+/*
+If the hero height changes at different screen sizes:
+@media screen and (max-width: @screen-md-max){
+	.hero{
+		height:@hero-height-default;
+	}
+}
+@media screen and (max-width: @screen-sm-max){
+	.hero{
+		height:@hero-height-default;
+	}
+}
+@media screen and (max-width: @screen-xs-max){
+	.hero{
+		height:@hero-height-default;
+	}
+}
+*/
+
+
+/* Other hero styles */
+.hero{
+	position: relative;
+	.clearfix();
+	img.hero-bg{
+		display: block;
+		/*height: 42%; // Set to percentage to get aspect ratio on image height;*/
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	.title{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 2;
+	}
+}
+
+
+.hero{
+	.hero-bg{ height: @hero-height-default; }
+	&.hero-large{
+		.hero-bg{ height: @hero-height-large; }
+	}
+	&.hero-medium{
+		.hero-bg{ height: @hero-height-medium; }
+	}
+	&.hero-small{
+		.hero-bg{ height: @hero-height-small; }
+	}
+}

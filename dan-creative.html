@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}"> 
+    {block:Description}
+        <meta name="description" content="{MetaDescription}" /> 
+    {/block:Description}
+
+    <style type="text/css" media="screen">
+
+        /* Example of how to use the default tumblr options. */
+
+        /* The custom css that the user can add using tumblrs api. */
+        {CustomCSS} 
+        
+        body {
+            background: {color:Background};
+            color: {color:Text}; }
+        
+        #footer .attribution a, #footer .attribution a:link, #footer .attribution a:visited, #header #description a, #header #description a:link, #header #description a:visited, a { color: {color:Links}; }
+        
+        a:hover { color: {color:Links Hover}; }
+
+        #header h1 a { color: {color:Heading}; }
+        
+        #header h1 a:hover { color: {color:Heading Hover}; }
+            
+        #description { color: {color:Description}; }
+        
+        .permalink a { color: {color:Permalink}; }      
+            
+        .permalink a:hover { color: {color:Permalink Hover}; }
+            
+        #footer, .quote p, .photo p, .video p, .audio p, #content .conversation, .text blockquote { color: {color:Text Alt}; }
+
+    </style>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {block:IndexPage}
+        <script>
+            // This is where the script for the homepage gallery will go.
+        </script>
+    {/block:IndexPage}
+
+</head>
+<body>
+
+    <header id="header">
+        <div class="blog-name">
+            <a href="/">Daniel Matthews.</a>
+        </div>
+
+        <div class="social-links">
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="blog-nav">
+            <nav id="main-nav">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                        <a href="/about/">About me</a>
+                        <a href="/tagged/inspiration">Inspirations</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- This is the header for the site. It will be static for all of the pages -->
+    </header>
+
+
+    <main id="main">
+        <!-- This is the main body of the page -->
+        {block:IndexPage}
+            <div id="my-work"></div>
+        {/block:IndexPage}
+        
+        {block:TagPage}
+            {block:Posts}
+                <!-- Square list of all the posts that have been reblogged -->
+            {/block:Posts}
+        {/block:TagPage}
+
+        {block:PermalinkPage} 
+            {block:Posts} 
+
+            {/block:Posts} 
+        {/block:PermalinkPage}
+
+    </main>
+
+    <footer id="footer">
+        <!-- This is the header for the site. It will be footer for all of the pages -->
+    </footer>
+</body>
+</html>
